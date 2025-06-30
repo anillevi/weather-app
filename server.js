@@ -30,7 +30,7 @@ const saveCities = (cities) => {
 };
 
 // Weather API configuration
-const API_KEY = process.env.WEATHER_API_KEY || '1b2751f7dc11738c4daed6b9bb5e12d4';
+const API_KEY = process.env.WEATHER_API_KEY || 'YOUR_API_KEY';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // Get weather for a city
