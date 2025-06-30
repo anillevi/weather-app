@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+        <div class="controls">
+            <button id="theme-toggle">Toggle Dark/Light</button>
+        </div>
+    </header>
+    
+    <main>
+        <form id="city-form">
+            <input type="text" id="city-input" placeholder="Enter city name" required>
+            <button type="submit">Add City</button>
+        </form>
+        
+        <div id="weather-cards" class="cards-container"></div>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>

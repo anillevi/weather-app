@@ -1,0 +1,132 @@
+:root {
+  --bg-color: #f0f2f5;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --header-bg: #007bff;
+  --header-text: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+  --button-bg: #28a745;
+  --button-hover: #218838;
+  --delete-btn: #dc3545;
+  --delete-hover: #c82333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --header-bg: #0d47a1;
+  --input-bg: #333;
+  --input-border: #555;
+  --button-bg: #2e7d32;
+  --button-hover: #1b5e20;
+  --delete-btn: #b71c1c;
+  --delete-hover: #c62828;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+#theme-toggle {
+  background-color: #6c757d;
+}
+
+#theme-toggle:hover {
+  background-color: #5a6268;
+}
+
+.delete-btn {
+  background-color: var(--delete-btn);
+}
+
+.delete-btn:hover {
+  background-color: var(--delete-hover);
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+#city-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+#city-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.weather-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  position: relative;
+}
+
+.weather-card h2 {
+  margin-top: 0;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.weather-card .delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
