@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'cities.json');
 
 // Middleware
@@ -30,7 +31,12 @@ const saveCities = (cities) => {
 };
 
 // Weather API configuration
-const API_KEY = process.env.WEATHER_API_KEY || 'YOUR_API_KEY';
+const API_KEY = process.env.WEATHER_API_KEY;
+if (!API_KEY) {
+  console.error('ERROR: WEATHER_API_KEY environment variable is not set');
+  console.error('Get a free API key from https://openweathermap.org/api');
+  process.exit(1);
+}
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // Get weather for a city
@@ -41,10 +47,19 @@ app.get('/api/weather/:city', async (req, res) => {
     const response = await fetch(
       `${BASE_URL}?q=${req.params.city},us&units=imperial&appid=${API_KEY}`
     );
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+    
     const data = await response.json();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch weather data' });
+    console.error('Weather API error:', error.message);
+    res.status(500).json({
+      error: 'Failed to fetch weather data',
+      details: error.message
+    });
   }
 });
 

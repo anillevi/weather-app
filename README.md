@@ -27,7 +27,7 @@ cd weather-app
 
 2. **Install dependencies**
 ```bash
-npm install express node-fetch
+npm install express node-fetch dotenv
 ```
 
 3. **Set up environment variables**
@@ -43,6 +43,11 @@ node server.js
 
 5. **Access the application**
 Open `http://localhost:3000` in your browser
+## Troubleshooting
+- If you see "WEATHER_API_KEY environment variable is not set":
+  1. Confirm your `.env` file exists in the project root
+  2. Verify it contains `WEATHER_API_KEY=your_api_key`
+  3. Restart the server after making changes
 
 ## Using the Application
 1. Enter a city name in the input field and click "Add City"
